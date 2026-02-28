@@ -148,7 +148,7 @@ ul {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: var(--spacing-lg);
-    align-items: center;
+    align-items: start;
 }
 
 .about-image {
