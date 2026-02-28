@@ -207,9 +207,13 @@ ul {
 
 .social-links {
     margin-top: var(--spacing-lg);
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
 }
 
-.linkedin-btn {
+.linkedin-btn,
+.email-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -222,13 +226,15 @@ ul {
     transition: var(--transition);
 }
 
-.linkedin-btn:hover {
+.linkedin-btn:hover,
+.email-btn:hover {
     background-color: var(--color-accent-hover);
     border-color: var(--color-accent-hover);
     transform: translateY(-2px);
 }
 
-.linkedin-icon {
+.linkedin-icon,
+.email-icon {
     width: 24px;
     height: 24px;
 }
