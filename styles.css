@@ -455,6 +455,77 @@ ul {
 }
 
 /* ===========================
+   Collaborations Section
+   =========================== */
+.collaborations-section {
+    background-color: var(--color-bg);
+}
+
+.collaborations-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.collaborators-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.collaborator-card {
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.collaborator-card:hover {
+    border-color: var(--color-accent-hover);
+    transform: translateY(-4px);
+}
+
+.collaborator-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text);
+}
+
+.collaborator-affiliation {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
+    font-style: italic;
+}
+
+.collaborator-institution {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.collaborator-link {
+    color: var(--color-text);
+    font-weight: 500;
+    transition: var(--transition);
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+.collaborator-link:hover {
+    color: var(--color-text);
+    transform: translateX(4px);
+}
+
+/* ===========================
    Footer
    =========================== */
 .footer {
@@ -476,6 +547,10 @@ ul {
 /* Tablet (768px - 1024px) */
 @media (max-width: 1024px) {
     .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .collaborators-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     
@@ -535,6 +610,10 @@ ul {
     }
 
     .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .collaborators-grid {
         grid-template-columns: 1fr;
     }
 
