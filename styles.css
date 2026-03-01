@@ -9,6 +9,8 @@
     --color-accent: #333333;
     --color-accent-hover: #444444;
     --color-border: #222222;
+    --color-storm-blue: #977608;
+    --color-storm-blue-dark: #977608;
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
@@ -93,7 +95,7 @@ ul {
 .nav-link:hover,
 .nav-link.active {
     background-color: var(--color-accent);
-    color: var(--color-text);
+    color: var(--color-storm-blue);
 }
 
 .nav-toggle {
@@ -127,6 +129,24 @@ ul {
     padding: var(--spacing-xl) 0;
     display: flex;
     align-items: center;
+    position: relative;
+}
+
+/* Section divider line */
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 1200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-storm-blue), transparent);
+}
+
+.section:first-of-type::before {
+    display: none;
 }
 
 .section-title {
@@ -135,6 +155,21 @@ ul {
     margin-bottom: var(--spacing-lg);
     color: var(--color-text);
     text-align: center;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+/* Storm blue underline for section titles */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-storm-blue);
 }
 
 /* ===========================
@@ -194,7 +229,7 @@ ul {
 .subtitle {
     font-size: 1.5rem;
     font-weight: 400;
-    color: var(--color-text-secondary);
+    color: var(--color-storm-blue);
     margin-bottom: var(--spacing-md);
 }
 
@@ -229,7 +264,7 @@ ul {
 .linkedin-btn:hover,
 .email-btn:hover {
     background-color: var(--color-accent-hover);
-    border-color: var(--color-accent-hover);
+    border-color: var(--color-storm-blue);
     transform: translateY(-2px);
 }
 
@@ -290,8 +325,8 @@ ul {
 }
 
 .circle.filled {
-    background-color: var(--color-text);
-    border-color: var(--color-text);
+    background-color: var(--color-storm-blue);
+    border-color: var(--color-storm-blue);
 }
 
 .skill-item:hover .circle {
@@ -299,8 +334,8 @@ ul {
 }
 
 .skill-item:hover .circle.filled {
-    background-color: var(--color-text);
-    box-shadow: 0 0 8px var(--color-text);
+    background-color: var(--color-storm-blue);
+    box-shadow: 0 0 10px var(--color-storm-blue);
 }
 
 /* ===========================
@@ -325,7 +360,7 @@ ul {
 }
 
 .publication-card:hover {
-    border-color: var(--color-accent-hover);
+    border-color: var(--color-storm-blue);
     transform: translateY(-4px);
 }
 
@@ -372,7 +407,63 @@ ul {
 
 .pub-link:hover {
     background-color: var(--color-accent-hover);
+    border-color: var(--color-storm-blue);
+}
+
+/* Poster Card Specific Styling */
+.poster-card {
+    position: relative;
+}
+
+.poster-preview {
+    margin: var(--spacing-md) 0;
+    width: 100%;
+}
+
+.poster-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1.414; /* A4 poster ratio */
+    border: 2px dashed var(--color-border);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-accent);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.poster-placeholder:hover {
     border-color: var(--color-accent-hover);
+    background-color: var(--color-bg);
+}
+
+.poster-placeholder p {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.poster-placeholder span {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    padding: 0 var(--spacing-md);
+}
+
+/* If poster image is added */
+.poster-preview img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+    transition: var(--transition);
+}
+
+.poster-preview img:hover {
+    transform: scale(1.02);
+    border-color: var(--color-accent-hover);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
 }
 
 /* ===========================
@@ -399,7 +490,7 @@ ul {
 }
 
 .project-card:hover {
-    border-color: var(--color-accent-hover);
+    border-color: var(--color-storm-blue);
     transform: translateY(-4px);
 }
 
@@ -426,6 +517,22 @@ ul {
     flex-grow: 1;
 }
 
+.project-learned {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: var(--spacing-sm);
+    background-color: var(--color-bg);
+    border-left: 3px solid var(--color-storm-blue);
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    color: var(--color-text-secondary);
+}
+
+.project-learned strong {
+    color: var(--color-storm-blue);
+    font-weight: 600;
+}
+
 .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -449,8 +556,13 @@ ul {
     align-self: flex-start;
 }
 
-.project-link:hover {
-    color: var(--color-text);
+.project-link.coming-soon {
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+.project-link.coming-soon:hover {
+    color: var(--color-storm-blue);
     transform: translateX(4px);
 }
 
@@ -488,7 +600,7 @@ ul {
 }
 
 .collaborator-card:hover {
-    border-color: var(--color-accent-hover);
+    border-color: var(--color-storm-blue);
     transform: translateY(-4px);
 }
 
@@ -521,7 +633,7 @@ ul {
 }
 
 .collaborator-link:hover {
-    color: var(--color-text);
+    color: var(--color-storm-blue);
     transform: translateX(4px);
 }
 
