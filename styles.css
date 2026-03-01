@@ -413,11 +413,33 @@ ul {
 /* Poster Card Specific Styling */
 .poster-card {
     position: relative;
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
 }
 
-.poster-preview {
-    margin: var(--spacing-md) 0;
+.poster-content-wrapper {
+    flex: 1;
+    min-width: 0; /* Allows flex item to shrink */
+}
+
+.poster-image-wrapper {
+    flex-shrink: 0;
+    width: 300px;
+}
+
+.poster-image-wrapper img {
     width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 2px solid var(--color-border);
+    transition: var(--transition);
+}
+
+.poster-image-wrapper img:hover {
+    transform: scale(1.02);
+    border-color: var(--color-storm-blue);
+    box-shadow: 0 4px 12px rgba(151, 118, 8, 0.3);
 }
 
 .poster-placeholder {
@@ -451,21 +473,6 @@ ul {
     padding: 0 var(--spacing-md);
 }
 
-/* If poster image is added */
-.poster-preview img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    border: 1px solid var(--color-border);
-    transition: var(--transition);
-}
-
-.poster-preview img:hover {
-    transform: scale(1.02);
-    border-color: var(--color-accent-hover);
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-}
-
 /* ===========================
    Projects Section
    =========================== */
@@ -487,11 +494,34 @@ ul {
     transition: var(--transition);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .project-card:hover {
     border-color: var(--color-storm-blue);
     transform: translateY(-4px);
+}
+
+.project-image {
+    margin: calc(-1 * var(--spacing-md)) calc(-1 * var(--spacing-md)) var(--spacing-md) calc(-1 * var(--spacing-md));
+    width: calc(100% + 2 * var(--spacing-md));
+    height: 200px;
+    overflow: hidden;
+    background-color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
 }
 
 .project-title {
@@ -741,6 +771,14 @@ ul {
 
     .container {
         padding: 0 var(--spacing-sm);
+    }
+
+    .poster-card {
+        flex-direction: column;
+    }
+
+    .poster-image-wrapper {
+        width: 100%;
     }
 }
 
