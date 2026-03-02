@@ -505,7 +505,7 @@ ul {
 .project-image {
     margin: calc(-1 * var(--spacing-md)) calc(-1 * var(--spacing-md)) var(--spacing-md) calc(-1 * var(--spacing-md));
     width: calc(100% + 2 * var(--spacing-md));
-    max-height: 250px;
+    height: 220px;
     overflow: hidden;
     background-color: var(--color-accent);
     display: flex;
@@ -515,9 +515,9 @@ ul {
 
 .project-image img {
     width: 100%;
-    height: auto;
-    max-height: 250px;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     transition: var(--transition);
 }
 
